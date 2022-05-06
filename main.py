@@ -15,6 +15,7 @@ PASSWORD='XXXXXX'   # Aurion Password
 jour=5              # jour de syncro (lundi->1, mardi->2 ...)
 
 File_ics_download='xxxxx'
+Chromedriver_Path='xxxxx'
 # ----------------------------------------------------------------------------------
 
 
@@ -106,7 +107,7 @@ def main():
         d=date.strftime("%d")
         _,w,d=datetime.date(int(y), int(m), int(d)).isocalendar()
         if d==jour and not((w+1) in semaines):
-            driver = webdriver.Chrome(options=chrome_options)
+            driver = webdriver.Chrome(Chromedriver_Path, options=chrome_options)
             driver.get('https://aurion-prod.enac.fr/faces/Login.xhtml') 
             connexion(driver,USERNAME,PASSWORD)
             Aller_page_EDT(driver)
