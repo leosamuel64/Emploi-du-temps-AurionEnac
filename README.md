@@ -33,6 +33,14 @@ Dans main.py, il faut indiquer :
   - mot de passe 
   - jour de synchronisation (Vendredi -> 5)
   - emplacement du fichier planning téléchargé (.../Downloads/Planning.ics par exemple)
+  - emplacement du fichier chromedriver
+  
+  Pour obtenir ce chemin :
+  ``` Bash
+>> which chromedriver
+/usr/bin/chromedriver
+```
+
 
 ## Utilisation
 
