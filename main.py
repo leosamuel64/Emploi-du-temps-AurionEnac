@@ -106,7 +106,7 @@ def main():
         m=date.strftime("%m")
         d=date.strftime("%d")
         _,w,d=datetime.date(int(y), int(m), int(d)).isocalendar()
-        if d==jour and not((w+1) in semaines):
+        if d>=jour and not((w+1) in semaines):
             driver = webdriver.Chrome(Chromedriver_Path, options=chrome_options)
             driver.get('https://aurion-prod.enac.fr/faces/Login.xhtml') 
             connexion(driver,USERNAME,PASSWORD)
