@@ -1,4 +1,4 @@
-# Aurion_Enac
+# Emploi du temps : Aurion-Enac Google-Agenda
 Synchronisation de l'emploi du temps depuis Aurion vers un google agenda
 
 ## Installation
