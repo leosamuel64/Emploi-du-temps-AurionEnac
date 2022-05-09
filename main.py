@@ -7,16 +7,22 @@ from cal_setup import get_calendar_service
 import icalendar
 import os
 import re
+import json
+
 # ----------------------------------------------------------------------------------
 # ------------------------------- Configuration ------------------------------------
 # ----------------------------------------------------------------------------------
-USERNAME='XXXXXX'   # Aurion Username
-PASSWORD='XXXXXX'   # Aurion Password
 
-jour=5              # jour de syncro (lundi->1, mardi->2 ...)
+with open('config.json','r') as f:
+    data = json.load(f)
 
-File_ics_download='xxxxx'
-Chromedriver_Path='xxxxx'
+USERNAME=data['user']   # Aurion Username
+PASSWORD=data['password']   # Aurion Password
+
+jour=data['jour']           # jour de syncro (lundi->1, mardi->2 ...)
+
+File_ics_download=data['ics']
+Chromedriver_Path=data['chrome']
 # ----------------------------------------------------------------------------------
 
 
@@ -98,8 +104,8 @@ def ajouter_events(file):
     
             event = {
                     'summary': name,
+                    "colorId": couleur_ID(name),
                     'location': lieu,
-                    'colorId': couleur_ID(name),
                     'description': description,
                     'start': {
                         'dateTime': dstart.strftime("%Y-%m-%dT%H:%M:%S"),
@@ -126,7 +132,7 @@ def main():
         d=date.strftime("%d")
         _,w,d=datetime.date(int(y), int(m), int(d)).isocalendar()
         if d>=jour and not((w+1) in semaines):
-            driver = webdriver.Chrome(Chromedriver_Path, options=chrome_options)
+            driver = webdriver.Chrome(Chromedriver_Path,options=chrome_options)
             driver.get('https://aurion-prod.enac.fr/faces/Login.xhtml') 
             connexion(driver,USERNAME,PASSWORD)
             Aller_page_EDT(driver)
