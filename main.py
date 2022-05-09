@@ -6,6 +6,7 @@ import datetime
 from cal_setup import get_calendar_service
 import icalendar
 import os
+import re
 # ----------------------------------------------------------------------------------
 # ------------------------------- Configuration ------------------------------------
 # ----------------------------------------------------------------------------------
@@ -67,6 +68,23 @@ def Telecharger_EDT(driver):
     bouton=driver.find_element_by_id("form:j_idt120")
     bouton.click()
     
+def couleur_ID(name):
+    if re.search("Travaux pratiques",name)!=None:
+        res=5
+    elif re.search("Cours",name)!=None:
+        res=7
+    elif re.search("Conférence",name)!=None:
+        res=8
+    elif re.search("Bureau d'études",name)!=None:
+        res=2
+    elif re.search("Travaux dirigés",name)!=None:
+        res=3
+    elif re.search("EVALUATION",name)!=None:
+        res=11
+    else:
+        res=1
+    return res
+    
 def ajouter_events(file):
     e = open(file, 'rb')
     ecal = icalendar.Calendar.from_ical(e.read())
@@ -81,6 +99,7 @@ def ajouter_events(file):
             event = {
                     'summary': name,
                     'location': lieu,
+                    'colorId': couleur_ID(name),
                     'description': description,
                     'start': {
                         'dateTime': dstart.strftime("%Y-%m-%dT%H:%M:%S"),
