@@ -142,7 +142,7 @@ def main():
             file=File_ics_download
             print("fin Scraping")
             time.sleep(5)
-
+            service = get_calendar_service()
             ajouter_events(file)
             supprimer_fichier(file)
             semaines.append(w+1)
