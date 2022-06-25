@@ -46,7 +46,7 @@ def connexion(driver,username_text,password_text):
     
 def Aller_page_EDT(driver):
     time.sleep(5)
-    lien=driver.find_element_by_id("form:j_idt887")
+    lien=driver.find_element_by_id("form:j_idt915")
     lien.click()
     
 def Afficher_Semaine_suivante(driver):
