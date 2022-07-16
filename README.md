@@ -34,6 +34,7 @@ Dans main.py, il faut indiquer :
   - jour de synchronisation (Vendredi -> 5)
   - emplacement du fichier planning téléchargé (.../Downloads/Planning.ics par exemple)
   - emplacement du fichier chromedriver
+  - Emplacement vers le fichier json google
   
   Pour obtenir ce chemin :
   ``` Bash

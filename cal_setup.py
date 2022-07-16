@@ -4,10 +4,15 @@ import os.path
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
+import json
 
 SCOPES = ['https://www.googleapis.com/auth/calendar']
 
-CREDENTIALS_FILE = 'xxxxx' # Chemin vers le fichier json google
+with open('config.json','r') as f:
+    data = json.load(f)
+
+CREDENTIALS_FILE=data['creds']   # Aurion Username
+
 
 def get_calendar_service():
    creds = None
@@ -17,6 +22,10 @@ def get_calendar_service():
    if os.path.exists('token.pickle'):
        with open('token.pickle', 'rb') as token:
            creds = pickle.load(token)
+           
+   if creds:
+      creds.refresh(Request()) 
+   
    # If there are no (valid) credentials available, let the user log in.
    if not creds or not creds.valid:
        if creds and creds.expired and creds.refresh_token:

@@ -3,5 +3,6 @@
     "password": "xxxx",
     "jour": 5,
     "ics":"xxxxxx",
-    "chrome":"xxx"
+    "chrome":"xxx",
+    "creds":"xxx"
 }
