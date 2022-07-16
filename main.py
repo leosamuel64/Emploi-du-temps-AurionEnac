@@ -16,7 +16,7 @@ import json
 with open('config.json','r') as f:
     data = json.load(f)
 
-USERNAME=data['user']   # Aurion Username
+USERNAME=data['login']   # Aurion Username
 PASSWORD=data['password']   # Aurion Password
 
 jour=data['jour']           # jour de syncro (lundi->1, mardi->2 ...)
@@ -46,7 +46,7 @@ def connexion(driver,username_text,password_text):
     
 def Aller_page_EDT(driver):
     time.sleep(5)
-    lien=driver.find_element_by_id("form:j_idt887")
+    lien=driver.find_element_by_id("form:j_idt911")
     lien.click()
     
 def Afficher_Semaine_suivante(driver):
