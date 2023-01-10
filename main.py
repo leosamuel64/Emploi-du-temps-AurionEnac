@@ -8,6 +8,7 @@ import icalendar
 import os
 import re
 import json
+import api
 
 # ----------------------------------------------------------------------------------
 # ------------------------------- Configuration ------------------------------------
@@ -23,57 +24,35 @@ jour = data['jour']           # jour de syncro (lundi->1, mardi->2 ...)
 
 File_ics_download = data['ics']
 Chromedriver_Path = data['chrome']
+API=api.API()
+
 # ----------------------------------------------------------------------------------
 
 
-service = get_calendar_service()
-chrome_options = Options()
-chrome_options.add_argument("--no-sandbox")  # linux only
+# service = get_calendar_service()
 
 
-def connexion(driver, username_text, password_text):
-    username = driver.find_element_by_id("username")
-    username.send_keys(username_text)
+def init(login,pwd):
+    API.login(login,pwd)
+    API.navigate()
 
-    password = driver.find_element_by_name("password")
-    password.send_keys(password_text)
-
-    button = driver.find_element_by_id("j_idt28")
-    button.click()
-
-
-def Aller_page_EDT(driver):
-    time.sleep(5)
-    lien = driver.find_element_by_id("form:j_idt911")
-    lien.click()
-
-
-def Afficher_Semaine_suivante(driver):
-    time.sleep(5)
-    case = driver.find_element_by_id("form:week")
-    case.clear()
-    time.sleep(1)
+    
+def download_week(week_nb,year):
+    API.selectCal(week_nb,year)
+    ics = API.getCal()
+    file = open('planning.ics','w')
+    file.write(ics)
+    
+    
+def download_next_week():
     date = datetime.date.today()
     y = date.strftime("%Y")
     m = date.strftime("%m")
     d = date.strftime("%d")
     _, w, _ = datetime.date(int(y), int(m), int(d)).isocalendar()
     w += 1
-
-    case.send_keys(str(w)+'-'+str(y))
-    time.sleep(10)
-    bouton = driver.find_element_by_id("form:j_idt115")
-    bouton.click()
-    time.sleep(10)
-    bouton = driver.find_element_by_id("form:j_idt115")
-    bouton.click()
-
-
-def Telecharger_EDT(driver):
-    time.sleep(3)
-    bouton = driver.find_element_by_id("form:j_idt120")
-    bouton.click()
-
+    download_week(w,int(y))
+    
 
 def couleur_ID(name):
     if re.search("Travaux pratiques", name) != None:
@@ -93,7 +72,7 @@ def couleur_ID(name):
     return res
 
 
-def ajouter_events(file):
+def ajouter_events(file,service):
     e = open(file, 'rb')
     ecal = icalendar.Calendar.from_ical(e.read())
     for component in ecal.walk():
@@ -136,22 +115,16 @@ def main():
         d = date.strftime("%d")
         _, w, d = datetime.date(int(y), int(m), int(d)).isocalendar()
         if d >= jour and not((w+1) in semaines):
-            driver = webdriver.Chrome(
-                Chromedriver_Path, options=chrome_options)
-            driver.get('https://aurion-prod.enac.fr/faces/Login.xhtml')
-            connexion(driver, USERNAME, PASSWORD)
-            Aller_page_EDT(driver)
-            Afficher_Semaine_suivante(driver)
-            Telecharger_EDT(driver)
-
-            file = File_ics_download
-            print("fin Scraping")
+            download_next_week()
+            file = 'planning.ics'
+            print("Fin Scraping")
             time.sleep(5)
+            
             service = get_calendar_service()
-            ajouter_events(file)
+            
+            ajouter_events(file,service)
             supprimer_fichier(file)
             semaines.append(w+1)
-            driver.close()
 
 
 main()

@@ -1,0 +1,138 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//hacksw/handcal//NONSGML v1.0//EN
+METHOD:PUBLISH
+X-WR-TIMEZONE:Europe/Paris
+BEGIN:VEVENT
+DTSTART:20230109T101500
+DTEND:20230109T121500
+DTSTAMP:20230109T121500
+UID:25242462
+SEQUENCE:1
+LOCATION:C206\n
+SUMMARY:  Anglais général - Cours\n
+DESCRIPTION:
+ - Matière - Cours :   Anglais général\n
+ - Intervenant : LICONA Victor\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20230110T131500
+DTEND:20230110T151500
+DTSTAMP:20230110T151500
+UID:25263877
+SEQUENCE:1
+LOCATION:C206\n
+SUMMARY:  Anglais aéronautique - Cours\n
+DESCRIPTION:
+ - Matière - Cours :   Anglais aéronautique\n
+ - Intervenant : FORSTER Sian\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20230111T131500
+DTEND:20230111T151500
+DTSTAMP:20230111T151500
+UID:26204465
+SEQUENCE:1
+LOCATION:C002\n
+SUMMARY:  Introduction aux statistiques et application en fiabilité - Cours\n
+DESCRIPTION:
+ - Matière - Cours :   Introduction aux statistiques et application en fiabilité\n
+ - Intervenant : MARTY Georges\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20230110T153000
+DTEND:20230110T173000
+DTSTAMP:20230110T173000
+UID:26204647
+SEQUENCE:1
+LOCATION:C016\n
+SUMMARY:  Introduction aux statistiques et application en fiabilité - Cours\n
+DESCRIPTION:
+ - Matière - Cours :   Introduction aux statistiques et application en fiabilité\n
+ - Intervenant : MARTY Georges\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20230111T101500
+DTEND:20230111T121500
+DTSTAMP:20230111T121500
+UID:26431228
+SEQUENCE:1
+LOCATION:D102\n
+SUMMARY:  Programmation des applications web 2 - Travaux pratiques\n
+DESCRIPTION:
+ - Matière - Cours :   Programmation des applications web 2\n
+ - Intervenant : PIN Joackim / PUECHMOREL Karine\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20230112T101500
+DTEND:20230112T121500
+DTSTAMP:20230112T121500
+UID:26431283
+SEQUENCE:1
+LOCATION:D102\n
+SUMMARY:  Programmation des applications web 2 - Bureau d'études\n
+DESCRIPTION:
+ - Matière - Cours :   Programmation des applications web 2\n
+ - Intervenant : PIN Joackim / PUECHMOREL Karine\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20230109T153000
+DTEND:20230109T173000
+DTSTAMP:20230109T173000
+UID:26532534
+SEQUENCE:1
+LOCATION:COUZ002\n
+SUMMARY:  Economie et finances publiques - Cours\n
+DESCRIPTION:
+ - Matière - Cours :   Economie et finances publiques\n
+ - Intervenant : BRUNNER Philippe\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20230110T080000
+DTEND:20230110T100000
+DTSTAMP:20230110T100000
+UID:26700950
+SEQUENCE:1
+LOCATION:COUZ001\n
+SUMMARY:  Opérations aériennes 1 - Cours\n
+DESCRIPTION:
+ - Matière - Cours :   Opérations aériennes 1\n
+ - Intervenant : PAPON Norbert\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20230112T131500
+DTEND:20230112T141500
+DTSTAMP:20230112T141500
+UID:26845965
+SEQUENCE:1
+LOCATION:C002\n
+SUMMARY:  Sensibilisation Qualité/Sécurité - Cours\n
+DESCRIPTION:
+ - Matière - Cours :   Sensibilisation Qualité/Sécurité\n
+ - Intervenant : VAUFREY Claire\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20230112T141500
+DTEND:20230112T151500
+DTSTAMP:20230112T151500
+UID:26846017
+SEQUENCE:1
+LOCATION:C018\n
+SUMMARY:  Sensibilisation Qualité/Sécurité - Travaux dirigés\n
+DESCRIPTION:
+ - Matière - Cours :   Sensibilisation Qualité/Sécurité\n
+ - Intervenant : VAUFREY Claire\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20230109T131500
+DTEND:20230109T151500
+DTSTAMP:20230109T151500
+UID:27372667
+SEQUENCE:1
+LOCATION:D102\n
+SUMMARY:  Programmation des applications web 2 - Cours\n
+DESCRIPTION:
+ - Matière - Cours :   Programmation des applications web 2\n
+ - Intervenant : PUECHMOREL Karine\n
+END:VEVENT
+END:VCALENDAR
