@@ -22,8 +22,6 @@ PASSWORD = data['password']   # Aurion Password
 
 jour = data['jour']           # jour de syncro (lundi->1, mardi->2 ...)
 
-File_ics_download = data['ics']
-Chromedriver_Path = data['chrome']
 API=api.API()
 
 # ----------------------------------------------------------------------------------
@@ -115,6 +113,7 @@ def main():
         d = date.strftime("%d")
         _, w, d = datetime.date(int(y), int(m), int(d)).isocalendar()
         if d >= jour and not((w+1) in semaines):
+            init(USERNAME,PASSWORD)
             download_next_week()
             file = 'planning.ics'
             print("Fin Scraping")
